@@ -5,6 +5,10 @@ import turtle as trtl
 painter = trtl.Turtle()
 painter.pensize(5)
 
+# change pensize
+size = int(input("What do you want the size of the pen to be?"))
+painter.pensize(size)
+
 # move turtle without marking a line
 painter.penup()
 painter.goto(0, 0)
@@ -12,9 +16,6 @@ painter.pendown()
 
 # draw a circle
 painter.circle(100, 360)
-
-# smiley face name
-print = input("What is the smiley faces name?")
 
 # make left eye
 painter.penup()
