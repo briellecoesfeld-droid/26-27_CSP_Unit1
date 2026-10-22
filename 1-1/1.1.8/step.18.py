@@ -3,6 +3,7 @@
 #   Move turtles horizontally and vertically across screen.
 #   Stopping turtles when they collide.
 import turtle as trtl
+from turtledemo.round_dance import stop
 
 # create two empty lists of turtles, adding to them later
 horiz_turtles = []
@@ -34,10 +35,22 @@ for s in turtle_shapes:
     tloc += 50
 
 # TODO: move turtles across and down screen, stopping for collisions
-"""
-for step in range(50):
-	# do something
-"""
+
+for step in range(30):
+    # loop through all horizontal turtles in list
+    for ht in horiz_turtles:
+        for vt in vert_turtles:
+            ht.forward(10)
+            vt.forward(10)
+
+            # check for collision in x
+            if (abs(ht.xcor() - vt.xcor()) < 40):
+                # check for collision in y
+                if (abs(ht.ycor() - vt.ycor()) < 40):
+                    horiz_turtles.remove(ht)
+                    vert_turtles.remove(vt)
+                    ht.fillcolor("gray")
+                    vt.fillcolor("gray")
 
 wn = trtl.Screen()
 wn.mainloop()
