@@ -46,85 +46,32 @@ t.begin_fill()
 t.circle(15, 360)
 t.end_fill()
 
-# create the sun
-t.penup()
-t.goto(-350, 125)
-t.pensize(3)
-t.pencolor("yellow")
-t.fillcolor("yellow")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
 
-# make the sun disappear
-t.penup()
-t.goto(-350, 125)
-t.pensize(3)
-t.pencolor("skyblue")
-t.fillcolor("skyblue")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
+xVals = [-350, -100, 100, 250]
+yVals = [125, 200, 200, 125]
+t.hideturtle()
+for b in range(4):
 
-# make the sun move
-t.penup()
-t.goto(-100, 200)
-t.pensize(3)
-t.pencolor("yellow")
-t.fillcolor("yellow")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
+    # create the sun
+    t.penup()
+    t.goto(xVals[b], yVals[b])
+    t.pensize(3)
+    t.pencolor("yellow")
+    t.fillcolor("yellow")
+    t.begin_fill()
+    t.circle(50)  # draw the sun
+    t.end_fill()
 
-# make the sun disappear
-t.penup()
-t.goto(-100, 200)
-t.pensize(3)
-t.pencolor("skyblue")
-t.fillcolor("skyblue")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
+    # make the sun disappear
+    t.penup()
+    t.goto(xVals[b], yVals[b])
+    t.pensize(3)
+    t.pencolor("skyblue")
+    t.fillcolor("skyblue")
+    t.begin_fill()
+    t.circle(50)  # draw the sun
+    t.end_fill()
 
-# make the sun move
-t.penup()
-t.goto(100, 200)
-t.pensize(3)
-t.pencolor("yellow")
-t.fillcolor("yellow")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
-
-# make the sun disappear
-t.penup()
-t.goto(100, 200)
-t.pensize(3)
-t.pencolor("skyblue")
-t.fillcolor("skyblue")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
-
-# make the sun move
-t.penup()
-t.goto(250, 125)
-t.pensize(3)
-t.pencolor("yellow")
-t.fillcolor("yellow")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
-
-# make the sun disappear
-t.penup()
-t.goto(250, 125)
-t.pensize(3)
-t.pencolor("skyblue")
-t.fillcolor("skyblue")
-t.begin_fill()
-t.circle(50)  # draw the sun
-t.end_fill()
 
 # create screen object and make it persist
 wn = t.Screen()
