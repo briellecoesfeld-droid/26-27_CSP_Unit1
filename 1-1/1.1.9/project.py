@@ -6,11 +6,14 @@ import turtle as t
 #define pen
 pen = t.Turtle()
 
-# slow pen speed for I can see growth
-pen.speed(2)
-
 #size of pen
 t.pensize(2)
+
+#Set speed of turtle
+#t.speed(0)
+
+# set up the screen and turtle for sky
+t.bgcolor("skyblue")
 
 #make variables
 petals_drawn = 0
@@ -27,7 +30,7 @@ def draw_petal():
     t.circle(100 , 60)
     t.end_fill()
 
-# Petal loop
+# petal loop
 for i in range(max_petals):
     draw_petal()
     # My if condition - grow the flower by moving outward slightly
@@ -43,6 +46,85 @@ t.begin_fill()
 t.circle(15, 360)
 t.end_fill()
 
+# create the sun
+t.penup()
+t.goto(-350, 125)
+t.pensize(3)
+t.pencolor("yellow")
+t.fillcolor("yellow")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
+
+# make the sun disappear
+t.penup()
+t.goto(-350, 125)
+t.pensize(3)
+t.pencolor("skyblue")
+t.fillcolor("skyblue")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
+
+# make the sun move
+t.penup()
+t.goto(-100, 200)
+t.pensize(3)
+t.pencolor("yellow")
+t.fillcolor("yellow")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
+
+# make the sun disappear
+t.penup()
+t.goto(-100, 200)
+t.pensize(3)
+t.pencolor("skyblue")
+t.fillcolor("skyblue")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
+
+# make the sun move
+t.penup()
+t.goto(100, 200)
+t.pensize(3)
+t.pencolor("yellow")
+t.fillcolor("yellow")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
+
+# make the sun disappear
+t.penup()
+t.goto(100, 200)
+t.pensize(3)
+t.pencolor("skyblue")
+t.fillcolor("skyblue")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
+
+# make the sun move
+t.penup()
+t.goto(250, 125)
+t.pensize(3)
+t.pencolor("yellow")
+t.fillcolor("yellow")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
+
+# make the sun disappear
+t.penup()
+t.goto(250, 125)
+t.pensize(3)
+t.pencolor("skyblue")
+t.fillcolor("skyblue")
+t.begin_fill()
+t.circle(50)  # draw the sun
+t.end_fill()
 
 # create screen object and make it persist
 wn = t.Screen()
