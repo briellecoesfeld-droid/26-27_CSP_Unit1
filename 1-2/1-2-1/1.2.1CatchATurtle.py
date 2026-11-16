@@ -10,6 +10,7 @@ import random as rand
 spot_size = 2
 spot_shape = "circle"
 spot_color = "pink"
+score = 0
 
 #-----initialize turtle-----
 
@@ -19,9 +20,25 @@ spot.shapesize(spot_size)
 spot.fillcolor(spot_color)
 
 #-----game functions--------
+def update_score():
+    global score
+    score += 1
+    print(score)
+
+def score_writer():
 
 def spot_clicked(x, y):
-   print("Spot was clicked!")
+   change_position()
+   update_score()
+
+def change_position():
+   new_xpos = rand.randint(-200, 200)
+   new_ypos = rand.randint(-150, 150)
+   spot.penup()
+   spot.hideturtle()
+   spot.goto(new_xpos, new_ypos)
+   spot.pendown()
+   spot.showturtle()
 
 #-----events----------------
 
