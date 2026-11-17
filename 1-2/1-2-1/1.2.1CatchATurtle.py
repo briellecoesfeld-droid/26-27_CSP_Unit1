@@ -7,10 +7,20 @@ import random as rand
 
 #-----game configuration----
 
+trtl.bgcolor("light blue")
 spot_size = 2
 spot_shape = "circle"
 spot_color = "pink"
+starter_size = 2
+starter_shape = "circle"
+starter_color = "red"
 score = 0
+font_setup = ("Ariel", 20, "normal")
+#-----countdown variables-----
+font_setup = ("Arial", 20, "normal")
+timer = 5
+counter_interval = 1000   #1000 represents 1 second
+timer_up = False
 
 #-----initialize turtle-----
 
@@ -19,17 +29,34 @@ spot.shape(spot_shape)
 spot.shapesize(spot_size)
 spot.fillcolor(spot_color)
 
+score_writer = trtl.Turtle()
+score_writer.penup()
+score_writer.hideturtle()
+score_writer.goto(200, 200)
+
+counter =  trtl.Turtle()
+counter.penup()
+counter.hideturtle()
+counter.goto(200, 150)
+
+starter = trtl.Turtle()
+starter.penup()
+starter.goto(200, 100)
+starter.shape(starter_shape)
+starter.shapesize(starter_size)
+starter.fillcolor(starter_color)
+
 #-----game functions--------
+
+#START HERE TOMORROW
+def start_game():
+
+
 def update_score():
     global score
     score += 1
-    print(score)
-
-def score_writer():
-
-def spot_clicked(x, y):
-   change_position()
-   update_score()
+    score_writer.clear()
+    score_writer.write(score, font=font_setup)
 
 def change_position():
    new_xpos = rand.randint(-200, 200)
@@ -40,9 +67,33 @@ def change_position():
    spot.pendown()
    spot.showturtle()
 
-#-----events----------------
+def spot_clicked(x, y):
+   global timer_up
+   if timer_up== False:
+       change_position()
+       update_score()
+   else:
+       spot.hideturtle()
+
+def countdown():
+    global timer, timer_up
+    counter.clear()
+    if timer <= 0:
+        counter.write("Time's Up", font=font_setup)
+        timer_up = True
+    else:
+        counter.write("Timer: " + str(timer), font=font_setup)
+        timer -= 1
+        counter.getscreen().ontimer(countdown, counter_interval)
+
+
+       #-----events----------------
 
 spot.onclick(spot_clicked)
+
+wn = trtl.Screen()
+wn.ontimer(countdown, counter_interval)
+wn.mainloop()
 
 # create screen object and make it persist
 wn = trtl.Screen()
