@@ -17,10 +17,10 @@ starter_color = "red"
 score = 0
 font_setup = ("Ariel", 20, "normal")
 #-----countdown variables-----
-font_setup = ("Arial", 20, "normal")
 timer = 5
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
+has_started = False
 
 #-----initialize turtle-----
 
@@ -39,18 +39,19 @@ counter.penup()
 counter.hideturtle()
 counter.goto(200, 150)
 
-starter = trtl.Turtle()
-starter.penup()
-starter.goto(200, 100)
-starter.shape(starter_shape)
-starter.shapesize(starter_size)
-starter.fillcolor(starter_color)
+starter_turtle = trtl.Turtle()
+starter_turtle.penup()
+starter_turtle.goto(200, 100)
+starter_turtle.shape(starter_shape)
+starter_turtle.shapesize(starter_size)
+starter_turtle.fillcolor(starter_color)
 
 #-----game functions--------
 
-#START HERE TOMORROW
-def start_game():
-
+def start_game(x, y):
+    global has_started
+    has_started = True
+    wn.ontimer(countdown, counter_interval)
 
 def update_score():
     global score
@@ -69,7 +70,8 @@ def change_position():
 
 def spot_clicked(x, y):
    global timer_up
-   if timer_up== False:
+   global has_started
+   if timer_up== False and has_started == True:
        change_position()
        update_score()
    else:
@@ -87,14 +89,14 @@ def countdown():
         counter.getscreen().ontimer(countdown, counter_interval)
 
 
-       #-----events----------------
+#-----events----------------
+
+starter_turtle.onclick(start_game)
 
 spot.onclick(spot_clicked)
 
 wn = trtl.Screen()
-wn.ontimer(countdown, counter_interval)
-wn.mainloop()
 
 # create screen object and make it persist
-wn = trtl.Screen()
+
 wn.mainloop()
